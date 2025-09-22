@@ -16,7 +16,7 @@ const Testimonial = () => {
         </div>
         <div className={styles.quoteWrapper}>
           <blockquote className={styles.quote}>
-            “Out of many great organisations that seek to confront the town's social
+            “Out of many great organisations that seek to confront the town&apos;s social
             challenges, Railton Foundation Swellendam is particularly notable for the
             variety of their projects, for their open-nesss and inclusivity, and their
             unceasing commitment and dedication.”

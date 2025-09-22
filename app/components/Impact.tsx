@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import styles from './Impact.module.css';
 
 // Reusable Icon component
