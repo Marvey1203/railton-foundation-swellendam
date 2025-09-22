@@ -1,0 +1,88 @@
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Full viewport height */
+  padding: 4rem 1.5rem;
+  background-image: url('/hero-image.jpeg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: var(--color-white);
+  text-align: center;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  z-index: 1;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.headline {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.subheadline {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  line-height: 1.6;
+  max-width: 650px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.ctaContainer {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* --- Responsiveness --- */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .headline {
+    font-size: 3rem;
+  }
+  .subheadline {
+    font-size: 1.1rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .hero {
+    min-height: 90vh;
+  }
+  .headline {
+    font-size: 2.5rem;
+  }
+  .ctaContainer {
+    flex-direction: column; /* Stack the buttons vertically */
+    width: 100%;
+  }
+
+  /* Make buttons full width on mobile stack */
+  .ctaContainer > * {
+    width: 100%;
+    max-width: 300px;
+  }
+}

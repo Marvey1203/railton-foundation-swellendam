@@ -1,0 +1,140 @@
+.impactSection {
+  background-color: var(--color-white); /* The section background is white */
+  padding: 80px 20px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.titleWrapper {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-black);
+}
+
+/* The Professional Bento Grid Layout */
+.bentoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 250px);
+  gap: 1.5rem;
+}
+
+/* Base Card Styling for ALL cards */
+.card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07); /* A more pronounced base shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12); /* The "cool shadow effect" on hover */
+}
+
+/* --- Main Card with Image --- */
+.mainCard {
+  grid-row: span 2;
+  color: var(--color-white);
+}
+
+.cardBgImage {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: url('/impact-youth.jpeg');
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  transition: transform 0.4s ease;
+}
+
+.mainCard:hover .cardBgImage {
+  transform: scale(1.05);
+}
+
+.cardOverlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 10%, rgba(0, 0, 0, 0) 60%);
+  z-index: 2;
+}
+
+/* --- Side Cards with Color Background --- */
+.sideCard {
+  background-color: var(--color-light-gray); /* The requested background color */
+  border: 1px solid #ff912b;
+}
+
+.cardContent {
+  position: relative;
+  z-index: 3;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.textContainer {
+  text-align: left;
+}
+
+/* Icon Styling */
+.icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 2rem; /* More space to push text down */
+  align-self: flex-start;
+  flex-grow: 1;
+}
+.mainCard .icon { color: var(--color-white); }
+.sideCard .icon { color: var(--color-orange-accent); }
+
+
+/* Title Styling */
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.mainCard .cardTitle { color: var(--color-white); }
+.sideCard .cardTitle { color: var(--color-black); }
+
+
+/* Paragraph Styling */
+.cardContent p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.mainCard p { color: rgba(255, 255, 255, 0.9); }
+.sideCard p { color: var(--color-dark-gray); }
+
+
+/* Grid Placement Rules */
+.cardEducation { grid-column: 2 / 3; grid-row: 1 / 2; }
+.cardCommunity { grid-column: 2 / 3; grid-row: 2 / 3; }
+
+
+/* --- Responsiveness --- */
+@media (max-width: 768px) {
+  .bentoGrid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .mainCard, .cardEducation, .cardCommunity {
+    grid-column: auto;
+    grid-row: auto;
+    min-height: 300px;
+  }
+}

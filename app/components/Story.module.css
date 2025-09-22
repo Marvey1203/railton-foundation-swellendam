@@ -1,0 +1,127 @@
+.storySection {
+  background-color: #fdfdfa;
+  padding: 100px 20px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* --- Video Column --- */
+.videoContainer {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* Maintain video aspect ratio */
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  position: relative; /* For positioning play button and iframe */
+}
+
+.videoThumbnail {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  position: relative;
+}
+
+.videoThumbnail::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.2); /* Slight dark overlay for contrast */
+  transition: background-color 0.3s ease;
+}
+
+.videoThumbnail:hover::after {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.playButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 80px;
+  height: 80px;
+  background-color: rgba(255, 122, 0, 0.9); /* Translucent orange */
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  backdrop-filter: blur(5px);
+}
+
+.playButton:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  background-color: rgba(255, 122, 0, 1);
+}
+
+.playButton svg {
+  width: 40px;
+  height: 40px;
+  margin-left: 5px; /* Optically center the play icon */
+}
+
+.videoIframe {
+  width: 100%;
+  height: 100%;
+}
+
+/* --- Text Column (styles remain largely the same) --- */
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-black);
+  line-height: 1.2;
+}
+
+.pullQuote {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--color-black);
+  padding-left: 1.5rem;
+  border-left: 4px solid var(--color-orange-accent);
+  line-height: 1.6;
+}
+
+.missionBlock {
+  background-color: #fffaf5;
+  padding: 1.5rem;
+  border-left: 4px solid var(--color-orange-accent);
+  border-radius: 0 8px 8px 0;
+}
+
+.trustSignal {
+  font-size: 0.9rem;
+  color: #777;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+  .title {
+    font-size: 2.5rem;
+  }
+}
